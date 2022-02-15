@@ -25,7 +25,7 @@
       "description": "Operacoes do usuario"
     },
     {
-      "name": "Message",
+      "name": "message",
       "description": "Operacoes com mensagens"
     }
   ],
@@ -113,6 +113,53 @@
           }
         }
       }
+    },
+    "/message": {
+      "post": {
+        "tags": [
+          "message"
+        ],
+        "summary": "Envia a mensagem",
+        "description": "envia a mensagem",
+        "operationId": "sendMessage",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string",
+                  "example": "Bom dia, grupooo!!"
+                },
+                "usernameSender": {
+                  "type": "string",
+                  "example": "badgalriri"
+                },
+                "idChat": {
+                  "type": "integer",
+                  "example": 456
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid values"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
@@ -146,11 +193,7 @@
         "content": {
           "type": "string"
         },
-        "idSender": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "idReceiver": {
+        "usernameSender": {
           "type": "integer",
           "format": "int64"
         },
@@ -161,10 +204,6 @@
         "time": {
           "type": "string",
           "format": "date-time"
-        },
-        "complete": {
-          "type": "boolean",
-          "default": false
         }
       },
       "xml": {
@@ -212,6 +251,20 @@
         },
         "chatName": {
           "type": "string"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "idUser": {
+                "type": "integer"
+              },
+              "username": {
+                "type": "string"
+              }
+            }
+          }
         }
       },
       "xml": {
