@@ -389,6 +389,43 @@
           }
         }
       }
+    },
+    "/chat/{idChat}": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat",
+        "description": "Carrega mensagens do chat.",
+        "operationId": "getChatMessages",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "idChat",
+            "in": "path",
+            "description": "Created user object",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Chat"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
@@ -464,7 +501,11 @@
         "userStatus": {
           "type": "integer",
           "format": "int32",
-          "description": "User Status"
+          "description": "User Status",
+          "enum": [
+            "online",
+            "offline"
+          ]
         }
       },
       "xml": {
@@ -480,6 +521,9 @@
         },
         "chatName": {
           "type": "string"
+        },
+        "qtdUsers": {
+          "type": "integer"
         },
         "users": {
           "type": "array",
