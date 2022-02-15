@@ -171,6 +171,66 @@
             "description": "User not found"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Atualizar usuario",
+        "description": "Só pode ser utilizado por usuario logado.",
+        "operationId": "updateUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "username do usuario que sera atualizado",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated user object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "badgalriri"
+                },
+                "fisrtName": {
+                  "type": "string",
+                  "example": "Rihanna"
+                },
+                "lasName": {
+                  "type": "string",
+                  "example": "Fenty"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "riri_htinha@hotmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "whatsmyname123!"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
       }
     },
     "/message": {
