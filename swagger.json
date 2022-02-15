@@ -390,7 +390,67 @@
         }
       }
     },
-    "/chat/{idChat}": {
+    "/chat": {
+      "post": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Cria novo chat",
+        "description": "Cria Chat",
+        "operationId": "createChat",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "chatName": {
+                  "type": "string",
+                  "example": "O assunto mais legal de todos"
+                },
+                "privacy": {
+                  "type": "string",
+                  "example": "public"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idChat": {
+                  "type": "integer",
+                  "example": 13
+                },
+                "chatName": {
+                  "type": "string",
+                  "example": "O assunto mais legal de todos"
+                },
+                "qtdUsers": {
+                  "type": "integer",
+                  "example": 0
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid values"
+          }
+        }
+      }
+    },
+    "/chat/getMessages/{idChat}": {
       "get": {
         "tags": [
           "chat"
@@ -479,7 +539,7 @@
     "User": {
       "type": "object",
       "properties": {
-        "id": {
+        "idUser": {
           "type": "integer",
           "format": "int64"
         },
@@ -515,7 +575,7 @@
     "Chat": {
       "type": "object",
       "properties": {
-        "id": {
+        "idChat": {
           "type": "integer",
           "format": "int64"
         },
@@ -524,6 +584,13 @@
         },
         "qtdUsers": {
           "type": "integer"
+        },
+        "privacy": {
+          "type": "string",
+          "enum": [
+            "public",
+            "private"
+          ]
         },
         "users": {
           "type": "array",
