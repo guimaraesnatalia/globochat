@@ -114,6 +114,65 @@
         }
       }
     },
+    "/user/{username}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get usuario pelo username",
+        "description": "",
+        "operationId": "getUserByUsename",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username do usuario desejado",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "integer",
+                  "example": 789
+                },
+                "username": {
+                  "type": "string",
+                  "example": "badgalriri"
+                },
+                "fisrtName": {
+                  "type": "string",
+                  "example": "Rihanna"
+                },
+                "lasName": {
+                  "type": "string",
+                  "example": "Fenty"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "riri_htinha@hotmail.com"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
     "/message": {
       "post": {
         "tags": [
