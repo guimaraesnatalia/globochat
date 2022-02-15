@@ -254,12 +254,68 @@
         }
       }
     },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Fazendo login no sistema",
+        "description": "",
+        "operationId": "loginUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User information",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "riri_htinha@hotmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "whatsmyname123!"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 789
+                },
+                "username": {
+                  "type": "string",
+                  "example": "badgalriri"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitaçao invalida"
+          }
+        }
+      }
+    },
     "/user/logout": {
       "get": {
         "tags": [
           "user"
         ],
-        "summary": "Logs out current logged in user session",
+        "summary": "Desloga o usuário",
         "description": "",
         "operationId": "logoutUser",
         "produces": [
@@ -268,8 +324,8 @@
         ],
         "parameters": [],
         "responses": {
-          "default": {
-            "description": "successful operation"
+          "200": {
+            "description": "Successful operation"
           }
         }
       }
