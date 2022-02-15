@@ -3,7 +3,7 @@
   "info": {
     "description": "Chat criado durante a residencia Globotech Academy.",
     "version": "1.0.0",
-    "title": "CHATS",
+    "title": "GLOBOCHAT",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
       "email": "apiteam@swagger.io"
@@ -17,20 +17,16 @@
   "basePath": "/v2",
   "tags": [
     {
-      "name": "Chat",
-      "description": "Globochat",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-      }
+      "name": "chat",
+      "description": "Ambiente de chat"
     },
     {
       "name": "user",
-      "description": "Operations about user",
-      "externalDocs": {
-        "description": "Find out more about our store",
-        "url": "http://swagger.io"
-      }
+      "description": "Operacoes do usuario"
+    },
+    {
+      "name": "Message",
+      "description": "Operacoes com mensagens"
     }
   ],
   "schemes": [
@@ -57,244 +53,65 @@
             "description": "Created user object",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "badgalriri"
+                },
+                "fisrtName": {
+                  "type": "string",
+                  "example": "Rihanna"
+                },
+                "lasName": {
+                  "type": "string",
+                  "example": "Fenty"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "riri_htinha@hotmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "whatsmyname123!"
+                }
+              }
             }
           }
         ],
         "responses": {
-          "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/user/login": {
-      "get": {
-        "tags": [
-          "user"
-        ],
-        "summary": "Loga o usuario no sistema",
-        "description": "",
-        "operationId": "loginUser",
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "query",
-            "description": "Email para logar no sistema",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "password",
-            "in": "query",
-            "description": "Senha para logar no sistema",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
           "200": {
-            "description": "successful operation",
+            "description": "Successful operation",
             "schema": {
-              "type": "string"
-            }
-          },
-          "400": {
-            "description": "Invalid username/password supplied"
-          }
-        }
-      }
-    },
-    "/user/logout": {
-      "get": {
-        "tags": [
-          "user"
-        ],
-        "summary": "Desloga o usuário do chat",
-        "description": "",
-        "operationId": "logoutUser",
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/user/{userId}": {
-      "get": {
-        "tags": [
-          "user"
-        ],
-        "summary": "Get usuario pelo id do usuario",
-        "description": "",
-        "operationId": "getUserById",
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "description": "The name that needs to be fetched. Use user1 for testing. ",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/User"
-            }
-          },
-          "404": {
-            "description": "User not found"
-          }
-        }
-      }
-    },
-    "/Message/{idMessage}": {
-      "get": {
-        "tags": [
-          "Message"
-        ],
-        "summary": "Entrega a mensagem",
-        "description": "Entrega a mensagem ao leitor",
-        "operationId": "GetMessage",
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "idMessage",
-            "in": "path",
-            "description": "id da mensagem",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "lida",
-                "não lida",
-                "não enviada"
-              ],
-              "default": "nao lida"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Message"
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "example": 789
+                },
+                "username": {
+                  "type": "string",
+                  "example": "badgalriri"
+                },
+                "fisrtName": {
+                  "type": "string",
+                  "example": "Rihanna"
+                },
+                "lasName": {
+                  "type": "string",
+                  "example": "Fenty"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "riri_htinha@hotmail.com"
+                }
               }
             }
           },
           "400": {
-            "description": "Invalid status value"
+            "description": "Invalid values"
           }
         }
-      },
-      "/Message": null,
-      "post": {
-        "tags": [
-          "Message"
-        ],
-        "summary": "envia a mensagem digitada pelo usuario",
-        "description": "",
-        "operationId": "SendMessage",
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "Text",
-            "description": "A mensagem em si",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ok"
-          }
-        }
-      }
-    },
-    "/atualizarChat": {
-      "get": {
-        "tags": [
-          "Chat"
-        ],
-        "summary": "Atualiza o chat",
-        "description": "Atualizar as mensagens na sala de conversa",
-        "operationId": "refreshChat",
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "mensagem",
-            "in": "query",
-            "description": "O valor da mensagem é necessário para fazer a busca e atualizar",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "available",
-                "pending"
-              ],
-              "default": "available"
-            },
-            "collectionFormat": "multi"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "operação com sucesso",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
-            }
-          },
-          "400": {
-            "description": "valor inválido da mensagem"
-          }
-        },
-        "security": [
-          {
-            "user_auth": [
-              "write:user",
-              "read:user"
-            ]
-          }
-        ]
       }
     }
   },
@@ -307,7 +124,9 @@
         "write:user": "modify user in your account",
         "read:user": "read your user",
         "write:message": "modify user in your account",
-        "read:message": "read your user"
+        "read:message": "read your user",
+        "write:chat": "modify chat in your account",
+        "read:chat": "read chat user"
       }
     },
     "api_key": {
