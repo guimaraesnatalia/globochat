@@ -486,6 +486,34 @@
           }
         }
       }
+    },
+    "/chat/list-rooms": {
+      "get": {
+        "tags": [
+          "chat"
+        ],
+        "summary": "Chat",
+        "description": "Lista salas do chat.",
+        "operationId": "getChatRooms",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Message"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Chat"
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
