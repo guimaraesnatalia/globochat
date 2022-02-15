@@ -219,6 +219,40 @@
           }
         }
       }
+    },
+    "/message/{idMessage}": {
+      "get": {
+        "tags": [
+          "message"
+        ],
+        "summary": "Mensagem",
+        "description": "Buscando Mensagem.",
+        "operationId": "getMessageById",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "idMessage",
+            "in": "path",
+            "description": "Created user object",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "400": {
+            "description": "Id Inválido."
+          }
+        }
+      }
     }
   },
   "securityDefinitions": {
