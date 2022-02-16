@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+<style>
+* {
+    box-sizing: boder-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+header{
+    background-color: #FAD961;
+    background-image: linear-gradient(0deg, #FAD961 0%, #f78d1c 100%);
+    display: flex;    
+    align-items: flex-end;
+    justify-content: space-between;
+    /*height: 15vh;*/
+    padding:2.5%;
+    font-family: 'Comic Neue', cursive;
+    color:rgb(0, 0, 0);
+    font-weight: bold;
+    justify-items: center;
+    align-items: center;
+}
+img{
+    border-radius: 50%;
+}
+
+#perfil{
+    width:90px;
+    height:90px;
+}
+
+.aside {
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float:right;
+  font-style: italic;
+  background-color: blue;
+  padding-top: -130rem;
+}
+
+.container, .message {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container-chat img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.container-chat img.left {
+  float: left;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+.container {
+            width: 60%;
+            margin: 1vw;
+        }
+
+.container-chat{
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    width:100%;
+    height:auto;    
+    padding:10px 0px 2px 10px;
+}
+
+#lblParticipante{
+    color: #f78d1c
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.enviar{
+    background-color: #008CBA;
+}
+.sair{
+    background-color: orange;
+}
+.chat-text{
+    float: left;
+    border: none;
+    padding: 10px;
+    width: 200px;
+}
+
+.coluna-50 {
+    width: 50%;
+}
+
+    
+
+.usuario{
+    color: #999
+}
+.row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(var(--bs-gutter-y) * -1);
+            margin-right: calc(var(--bs-gutter-x) / -2);
+            margin-left: calc(var(--bs-gutter-x) / -2);
+        }
+        
+        .row>* {
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) / 2);
+            padding-left: calc(var(--bs-gutter-x) / 2);
+            margin-top: var(--bs-gutter-y);
+        }
+        
+        @media (min-width: 576px) {
+            .col-sm {
+                flex: 1 0 0%;
+            }
+        }
+
+</style>
+</head>
+<body>
+    <header>
+        <div>
+        <h1>Globo Chats</h1>
+        <h2>Os Assuntos + legais de todos</h2>
+        </div>
+    <div class="perfilPrincipal">
+        <p>Max Paz</p>   
+        <img id="perfil" src="https://i.pinimg.com/736x/de/c3/7d/dec37da1b64686700a0f3472797015e3.jpg">   
+        <p>online e causando!!!</p>
+    </div>
+
+    </header>
+    <section>
+        <div class="container">
+        <div class="row">
+            <div class="col-sm"> 
+        <div class="container-chat">
+            <div class="container message">
+                <img src="https://pm1.narvii.com/6331/9102d357e07eaca9cb73c4a876b4beeed6963486_hq.jpg" alt="Avatar">
+                <p>E ae, como cê tá?</p>
+                <span class="time-right">11:00</span>
+            </div>
+            
+            <div class="container darker">
+                <img src="https://i.pinimg.com/736x/de/c3/7d/dec37da1b64686700a0f3472797015e3.jpg" alt="Avatar" class="right">
+                <p>Opa! Tô tranquilo e você?</p>
+                <span class="time-left">11:01</span>
+            </div>
+            
+            <div class="container">
+                <img src="https://caua1000.files.wordpress.com/2012/06/knd-kids-next-door-1.jpg?w=584" alt="Avatar">
+                <p>Que bom, rolê mais tarde?</p>
+                <span class="time-right">11:02</span>
+            </div>
+            
+            <div class="container darker">
+                <img src="https://i.pinimg.com/736x/de/c3/7d/dec37da1b64686700a0f3472797015e3.jpg" alt="Avatar" class="right">
+                <p>Bora</p>
+                <span class="time-left">11:05</span>
+            </div>
+        </div>
+        <div class="chat-text">
+            <form action="">
+                <label for="text">Conversar:</label>
+                <input type="text" id="text" name="text"><br><br>
+            </form>
+            <button class="button enviar" type="button">Enviar</button>     
+            <button type="button" class="sair">sair</button>     
+        </div>
+    </section>
+    <aside></aside>
+
+   
+    
+    <footer></footer>
+    
+</body>
+</html>
