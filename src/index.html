@@ -40,14 +40,23 @@ img{
     height:90px;
 }
 
-.aside {
-  width: 30%;
-  padding-left: 15px;
-  margin-left: 15px;
-  float:right;
-  font-style: italic;
-  background-color: blue;
-  padding-top: -130rem;
+aside {
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 
+  sans-serif;
+  font-weight: bold;
+  border: 2px solid #0e8b2d96;
+  background-color: #52c72f71;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 1vw;
+  display: grid;
+
+}
+.listaAmigos img{
+    width: 70px;
+    margin: 1vw;
+    border-style: initial;
+    border: 5px solid #0e8b2d96;
 }
 
 .container, .message {
@@ -99,9 +108,8 @@ img{
   color: #999;
 }
 .container {
-            width: 60%;
-            margin: 1vw;
-        }
+    margin: 1vw;
+}
 
 .container-chat{
     display:flex;
@@ -114,6 +122,12 @@ img{
 
 #lblParticipante{
     color: #f78d1c
+}
+
+.geral{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 75% 25%;
 }
 
 button {
@@ -133,6 +147,13 @@ button {
 }
 .sair{
     background-color: orange;
+}
+
+input[type=text]{
+    height: 5vh;
+    width: 68vw;
+    border-radius: 5px;
+    border: 2px solid #1f222060;
 }
 .chat-text{
     float: left;
@@ -160,7 +181,7 @@ button {
             margin-left: calc(var(--bs-gutter-x) / -2);
         }
         
-        .row>* {
+        .row{
             flex-shrink: 0;
             width: 100%;
             max-width: 100%;
@@ -190,6 +211,7 @@ button {
     </div>
 
     </header>
+    <div class="geral">
     <section>
         <div class="container">
         <div class="row">
@@ -221,15 +243,29 @@ button {
         </div>
         <div class="chat-text">
             <form action="">
-                <label for="text">Conversar:</label>
+                <label for="text">Digite sua Mensagem:</label>
                 <input type="text" id="text" name="text"><br><br>
             </form>
             <button class="button enviar" type="button">Enviar</button>     
             <button type="button" class="sair">sair</button>     
         </div>
     </section>
-    <aside></aside>
+    <aside>
+       <h2>Amigos Online Agora</h2>
+       <div class="listaAmigos">
+        <img src="https://caua1000.files.wordpress.com/2012/06/knd-kids-next-door-1.jpg?w=584" alt="Avatar">
+        <p>Numero 1</p>
+        <img src="https://pbs.twimg.com/media/ExS0macXEAE_yDX.png" alt="Avatar"> 
+        <p>Numero 2</p>
+        <img src="https://caua1000.files.wordpress.com/2012/06/knd-kids-next-door-3.jpg?w=584" alt="Avatar"> 
+        <p>Numero 3</p>
+        <img src="https://pm1.narvii.com/6331/9102d357e07eaca9cb73c4a876b4beeed6963486_hq.jpg" alt="Avatar"> 
+        <p>Numero 5</p>
+        
+       </div>
 
+    </aside>
+    </div>
    
     
     <footer></footer>
